@@ -285,34 +285,58 @@
     // --- SUBMISSION FUNCTION ---
     async function submitAssignment() {
         console.log("Starting submission process for ALL assignments...");
-        const finalObject = await gatherAllAssignmentsData(true); // Ruft alle Daten ab, einschließlich der aktuellen Editor-Inhalte
+        const finalObject = await gatherAllAssignmentsData(true);
         if (!finalObject) return;
 
-        if (!GOOGLE_SCRIPT_URL) {
-            alert('Konfigurationsfehler: Die Abgabe-URL ist nicht festgelegt. Bitte kontaktiere deinen Lehrer.');
-            return;
-        }
-        const confirmation = confirm("Du bist dabei, ALLE gespeicherten Aufträge an deinen Lehrer zu senden. Fortfahren?");
+        // --- OLD GOOGLE SCRIPT URL FOR SAVING TO DRIVE ---
+        const GOOGLE_DRIVE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5K91wdQtilTZLU8IW1iRIrXnAhlhf4kLn4xq0IKXIS7BCYN5H3YZlz32NYhqgtcLSA/exec';
+
+        // --- NEW APPS SCRIPT URL FOR AI FEEDBACK ---
+        const FEEDBACK_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3K_VyLt1Rhq52V3igYo9JDI3Kv7jwKxfJYzctpGzqSm_2Tqt3hitUic2m12no2a3ODg/exec'; // <-- PASTE YOUR DEPLOYED WEB APP URL HERE
+
+        const confirmation = confirm("Du bist dabei, ALLE gespeicherten Aufträge an deinen Lehrer zu senden und Feedback zu erhalten. Fortfahren?");
         if (!confirmation) {
             alert("Abgabe abgebrochen.");
             return;
         }
-        alert('Deine Arbeiten werden an Google Drive übermittelt. Dies kann einen Moment dauern. Bitte warte auf die Erfolgsbestätigung.');
+        alert('Deine Arbeiten werden übermittelt. Dies kann einen Moment dauern. Bitte warte auf die Erfolgsbestätigung und das Feedback.');
+
         try {
-            const response = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'cors', body: JSON.stringify(finalObject) });
-            const result = await response.json();
-            if (response.ok && result.status === 'success') {
-                const successMessage = `Deine Arbeiten wurden erfolgreich übermittelt.\n\nDu kannst alle deine Abgaben in diesem Ordner einsehen:\n${result.folderUrl}`;
-                alert(successMessage);
+            // First, submit to Google Drive to save the work
+            const driveResponse = await fetch(GOOGLE_DRIVE_SCRIPT_URL, { method: 'POST', mode: 'cors', body: JSON.stringify(finalObject) });
+            const driveResult = await driveResponse.json();
+            if (!driveResponse.ok || driveResult.status !== 'success') {
+                throw new Error(driveResult.message || 'Ein Fehler ist beim Speichern auf Google Drive aufgetreten.');
             }
-            else {
-                throw new Error(result.message || 'Ein unbekannter Fehler ist auf dem Server aufgetreten.');
+
+            // If saving to Drive was successful, get feedback
+            const feedbackResponse = await fetch(FEEDBACK_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(finalObject),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (feedbackResponse.ok) {
+                const feedbackHtml = await feedbackResponse.text();
+                // Open feedback in a new window
+                const feedbackWindow = window.open("", "Feedback", "width=800,height=600");
+                feedbackWindow.document.write(feedbackHtml);
+                feedbackWindow.document.close();
+            } else {
+                throw new Error('Fehler beim Abrufen des Feedbacks.');
             }
+
+            alert(`Deine Arbeiten wurden erfolgreich übermittelt.\n\nDu kannst alle deine Abgaben in diesem Ordner einsehen:\n${driveResult.folderUrl}`);
+
         } catch (error) {
-            console.error('Google Drive submission failed:', error);
-            alert(`Fehler beim Senden der Daten an Google Drive. Dies könnte ein Internetproblem sein.\n\nBitte versuche es erneut.\n\nFehler: ${error.message}`);
+            console.error('Submission or feedback process failed:', error);
+            alert(`Fehler beim Senden der Daten. Dies könnte ein Internetproblem sein.\n\nBitte versuche es erneut.\n\nFehler: ${error.message}`);
         }
     }
+
 
     // --- PRINT FUNCTION ---
     async function printAssignment() {
