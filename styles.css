@@ -1,0 +1,434 @@
+================================================
+FILE: styles.css
+================================================
+/* File: allgemeinbildung-textbox/styles.css */
+/* Grundlegende Stile */
+:root {
+    --background-color: #ffffff; /* Weißer Hintergrund */
+    --text-color: #000000; /* Schwarzer Text */
+    --editor-background: #ffffff;
+    --border-color: #cccccc;
+    --button-text-color: #ffffff;
+    --button-copy-bg: #4CAF50; /* Grün */
+    --button-copy-text: #ffffff;
+    --bulk-delete-bg: #d32f2f; /* Dunkleres Rot */
+    --bulk-delete-text: #ffffff;
+    --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
+    --text-secondary-color: #555555;
+    --button-print-all-bg: #4CAF50; /* Grün für den neuen Button */
+    --button-print-all-hover-bg: #45a049; /* Dunkleres Grün beim Hover */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quill-editor {
+    margin-bottom: 10px;
+    background-color: var(--editor-background);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* MODIFIED for dynamic height and scrolling fix */
+#answerBox .ql-editor {
+    min-height: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.button-container,
+.button-container-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Spezifische Button-Stile */
+#reloadBtn {
+    background-color: #003f5c;
+}
+#reloadBtn:hover {
+    background-color: #2f4b7c;
+}
+#clearAllBtn {
+    background-color: #d62728;
+}
+#clearAllBtn:hover {
+    background-color: #ff6347;
+}
+#clearBtn {
+    background-color: #f44336;
+}
+#clearBtn:hover {
+    background-color: #ff7961;
+}
+#copyAnswerBtn {
+    background-color: var(--button-copy-bg);
+    color: var(--button-copy-text);
+}
+#copyAnswerBtn:hover {
+    background-color: #66BB6A;
+}
+.exportTxtBtn {
+    background-color: var(--button-copy-bg);
+    color: var(--button-copy-text);
+}
+.exportTxtBtn:hover {
+    background-color: #66BB6A;
+}
+.deleteAnswerBtn {
+    background-color: #f44336;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.deleteAnswerBtn:hover {
+    background-color: #d32f2f;
+}
+.printAnswerBtn {
+    background-color: #2196F3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.printAnswerBtn:hover {
+    background-color: #1E88E5;
+}
+#printAllBtn {
+    background-color: var(--button-print-all-bg);
+    color: var(--button-copy-text);
+}
+#printAllBtn:hover {
+    background-color: var(--button-print-all-hover-bg);
+}
+#bulkDeleteBtn {
+    background-color: var(--bulk-delete-bg);
+    color: var(--bulk-delete-text);
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#bulkDeleteBtn:hover:not(:disabled) {
+    background-color: var(--bulk-delete-hover-bg);
+}
+#bulkDeleteBtn:disabled {
+    background-color: #e57373;
+    cursor: not-allowed;
+}
+#printAllSubIdsBtn {
+    background-color: #673AB7;
+    color: white;
+}
+#printAllSubIdsBtn:hover {
+    background-color: #5E35B1;
+}
+#submitAssignmentBtn {
+    background-color: #4285F4; /* Google Blue */
+}
+#submitAssignmentBtn:hover {
+    background-color: #3367D6;
+}
+#printAssignmentBtn {
+    background-color: #673AB7; /* Purple */
+    color: white;
+}
+#printAssignmentBtn:hover {
+    background-color: #5E35B1;
+}
+#savedAnswerContainer {
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--editor-background);
+    display: none;
+    position: relative;
+}
+#savedAnswerContainer h3 {
+    margin-bottom: 10px;
+}
+#savedAnswer {
+    white-space: pre-wrap;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    background-color: var(--editor-background);
+    overflow: auto;
+    border: none;
+}
+#copyAnswerBtn {
+    display: none;
+}
+#savedAnswerContainer,
+.draft .answerText {
+    white-space: pre-wrap;
+}
+.info-text {
+    font-style: italic;
+    color: var(--text-secondary-color);
+    margin-bottom: 20px;
+}
+.draft {
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 5px;
+    background-color: var(--editor-background);
+    position: relative;
+    padding-left: 40px;
+}
+.answerText {
+    white-space: pre-wrap;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--editor-background);
+    overflow: auto;
+    border: none;
+    margin-top: 10px;
+}
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.copyAnswerBtn {
+    display: none;
+}
+#exportTxtBtn {
+    background-color: var(--button-copy-bg);
+    color: var(--button-copy-text);
+}
+#exportTxtBtn:hover {
+    background-color: #66BB6A;
+}
+
+/* Druckstile */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    body.print-all #printAllContent,
+    body.print-all #printAllContent * {
+        visibility: visible;
+    }
+
+    body.print-single #printSingleContent,
+    body.print-single #printSingleContent * {
+        visibility: visible;
+    }
+
+    #printAllContent,
+    #printSingleContent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .quill-editor {
+        display: none;
+    }
+
+    #printAllContent .ql-editor,
+    #printSingleContent .ql-editor {
+        visibility: visible;
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+        border: none !important;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        font-size: 14px;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        border: none;
+    }
+
+    #printAllContent .draft,
+    #printSingleContent .draft {
+        border: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    #printAllContent .draft h3,
+    #printSingleContent .draft h3 {
+        margin-bottom: 5px;
+    }
+
+    button {
+        display: none;
+    }
+
+    details,
+    summary {
+        display: none;
+    }
+
+    body.print-single #printSingleContent,
+    body.print-single #printSingleContent *,
+    body.print-all #printAllContent,
+    body.print-all #printAllContent * {
+        white-space: pre-wrap;
+    }
+}
+
+details {
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: var(--editor-background);
+}
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+details[open] summary::after {
+    content: " ▲";
+}
+summary::after {
+    content: " ▼";
+    float: right;
+}
+#saveIndicator {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.questions-container {
+    margin-bottom: 15px;
+}
+.questions-container ol li {
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+}
+.questions-container div {
+    margin-bottom: 5px;
+}
+.questions-container strong {
+    color: #004085;
+    font-weight: bold;
+}
+.questions-container em {
+    color: #004085;
+    font-style: italic;
+}
+
+/* MODIFIED: Reduce space between Sub-ID/Questions and Quill Editor */
+.sub-id-info {
+    margin-bottom: 5px; /* Was 15px */
+}
+
+/* ADDED: Reduce space above the Sub-ID title */
+.sub-id-info h4 {
+    margin-top: 0;
+}
+
+.ql-container.ql-snow {
+    border: 1px solid var(--border-color);
+    border-top: 0;
+}
+.ql-toolbar.ql-snow {
+    border: 1px solid var(--border-color);
+}
+
+
+/* MODIFIED: Styles for compact Attachments Section */
+.attachments-section {
+    margin-top: 15px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+/* ADDED: Style for the new file upload button label */
+.file-upload-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--button-text-color);
+    background-color: #6c757d; /* A more neutral color */
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.file-upload-btn:hover {
+    background-color: #5a6268;
+}
+
+/* MODIFIED: Compact list of attached files */
+#current-attachments .attachment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px; /* Was 8px */
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 5px; /* Was 8px */
+    font-size: 13px; /* Was 14px */
+}
+
+/* MODIFIED: Smaller remove button */
+.remove-attachment-btn {
+    padding: 3px 8px; /* Was 4px 10px */
+    font-size: 11px; /* Was 12px */
+    background-color: #d32f2f;
+    color: white;
+    cursor: pointer;
+}
+.remove-attachment-btn:hover {
+    background-color: #e53935;
+}
