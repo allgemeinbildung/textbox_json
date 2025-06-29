@@ -282,58 +282,83 @@
         return { identifier, payload: allDataPayload, signature, createdAt: new Date().toISOString() };
     }
 
-    // --- SUBMISSION FUNCTION ---
-    async function submitAssignment() {
-        console.log("Starting submission process for ALL assignments...");
-        const finalObject = await gatherAllAssignmentsData(true);
-        if (!finalObject) return;
+    // Add this entire new function to script.js
 
-        // --- OLD GOOGLE SCRIPT URL FOR SAVING TO DRIVE ---
-        const GOOGLE_DRIVE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5K91wdQtilTZLU8IW1iRIrXnAhlhf4kLn4xq0IKXIS7BCYN5H3YZlz32NYhqgtcLSA/exec';
+    async function getAiFeedback() {
+        console.log("Requesting AI feedback for the current assignment...");
 
-        // --- NEW APPS SCRIPT URL FOR AI FEEDBACK ---
-        const FEEDBACK_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3K_VyLt1Rhq52V3igYo9JDI3Kv7jwKxfJYzctpGzqSm_2Tqt3hitUic2m12no2a3ODg/exec'; // <-- PASTE YOUR DEPLOYED WEB APP URL HERE
+        // This function gathers only the currently displayed assignment data.
+        // The 'true' prompts the user for their name/identifier.
+        const currentData = await gatherCurrentAssignmentData(true);
 
-        const confirmation = confirm("Du bist dabei, ALLE gespeicherten Aufträge an deinen Lehrer zu senden und Feedback zu erhalten. Fortfahren?");
-        if (!confirmation) {
-            alert("Abgabe abgebrochen.");
-            return;
+        if (!currentData) {
+            alert("Aktion abgebrochen. Es wurden keine Daten zum Senden gefunden.");
+            return; // Exit if no data or user cancelled prompt
         }
-        alert('Deine Arbeiten werden übermittelt. Dies kann einen Moment dauern. Bitte warte auf die Erfolgsbestätigung und das Feedback.');
+
+        // IMPORTANT: Use the URL from your NEWEST deployment
+        const FEEDBACK_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3K_VyLt1Rhq52V3igYo9JDI3Kv7jwKxfJYzctpGzqSm_2Tqt3hitUic2m12no2a3ODg/exec';
+
+        alert('Dein Auftrag wird zur Analyse an die KI gesendet. Dies kann einen Moment dauern. Das Feedback öffnet sich in einem neuen Fenster.');
 
         try {
-            // First, submit to Google Drive to save the work
-            const driveResponse = await fetch(GOOGLE_DRIVE_SCRIPT_URL, { method: 'POST', mode: 'cors', body: JSON.stringify(finalObject) });
-            const driveResult = await driveResponse.json();
-            if (!driveResponse.ok || driveResult.status !== 'success') {
-                throw new Error(driveResult.message || 'Ein Fehler ist beim Speichern auf Google Drive aufgetreten.');
-            }
-
-            // If saving to Drive was successful, get feedback
             const feedbackResponse = await fetch(FEEDBACK_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'cors',
-                body: JSON.stringify(finalObject),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                body: JSON.stringify(currentData) // Send the data for the current assignment
             });
 
             if (feedbackResponse.ok) {
                 const feedbackHtml = await feedbackResponse.text();
-                // Open feedback in a new window
+                console.log("Feedback received, opening new window.");
                 const feedbackWindow = window.open("", "Feedback", "width=800,height=600");
-                feedbackWindow.document.write(feedbackHtml);
-                feedbackWindow.document.close();
+                if (feedbackWindow) {
+                    feedbackWindow.document.write(feedbackHtml);
+                    feedbackWindow.document.close();
+                } else {
+                    alert("Bitte erlaube Pop-ups, um das Feedback-Fenster zu sehen.");
+                }
             } else {
-                throw new Error('Fehler beim Abrufen des Feedbacks.');
+                // Provide more detailed error information
+                const errorText = await feedbackResponse.text();
+                console.error("Feedback fetch failed:", feedbackResponse.status, errorText);
+                throw new Error(`Der Server hat mit einem Fehler geantwortet: ${feedbackResponse.status}`);
             }
 
-            alert(`Deine Arbeiten wurden erfolgreich übermittelt.\n\nDu kannst alle deine Abgaben in diesem Ordner einsehen:\n${driveResult.folderUrl}`);
-
         } catch (error) {
-            console.error('Submission or feedback process failed:', error);
-            alert(`Fehler beim Senden der Daten. Dies könnte ein Internetproblem sein.\n\nBitte versuche es erneut.\n\nFehler: ${error.message}`);
+            console.error('AI Feedback request failed:', error);
+            alert(`Fehler beim Anfordern des Feedbacks. Dies könnte ein CORS-Problem oder ein Serverfehler sein.\n\nFehler: ${error.message}\n\nBitte überprüfe die Browser-Konsole (F12) für Details.`);
+        }
+    }
+
+    // --- SUBMISSION FUNCTION ---
+    async function submitAssignment() {
+        console.log("Starting submission process for ALL assignments to teacher...");
+        const finalObject = await gatherAllAssignmentsData(true);
+        if (!finalObject) return;
+
+        // This script only submits to the teacher's Google Drive.
+        const GOOGLE_DRIVE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5K91wdQtilTZLU8IW1iRIrXnAhlhf4kLn4xq0IKXIS7BCYN5H3YZlz32NYhqgtcLSA/exec';
+
+        const confirmation = confirm("Du bist dabei, ALLE gespeicherten Aufträge an deinen Lehrer zu senden. Diese Aktion ist für die definitive Abgabe gedacht. Fortfahren?");
+        if (!confirmation) {
+            alert("Abgabe abgebrochen.");
+            return;
+        }
+        alert('Deine Arbeiten werden an den Lehrer übermittelt. Dies kann einen Moment dauern. Bitte warte auf die Erfolgsbestätigung.');
+
+        try {
+            const response = await fetch(GOOGLE_DRIVE_SCRIPT_URL, { method: 'POST', mode: 'cors', body: JSON.stringify(finalObject) });
+            const result = await response.json();
+            if (response.ok && result.status === 'success') {
+                const successMessage = `Deine Arbeiten wurden erfolgreich übermittelt.\n\nDu kannst alle deine Abgaben in diesem Ordner einsehen:\n${result.folderUrl}`;
+                alert(successMessage);
+            } else {
+                throw new Error(result.message || 'Ein unbekannter Fehler ist auf dem Server aufgetreten.');
+            }
+        } catch (error) {
+            console.error('Google Drive submission failed:', error);
+            alert(`Fehler beim Senden der Daten an Google Drive. Dies könnte ein Internetproblem sein.\n\nBitte versuche es erneut.\n\nFehler: ${error.message}`);
         }
     }
 
@@ -663,6 +688,10 @@
 
         // Event Listener für alle Buttons
         document.getElementById('submitAssignmentBtn')?.addEventListener('click', submitAssignment);
+        
+        // ADD THIS LINE FOR THE NEW BUTTON
+        document.getElementById('getFeedbackBtn')?.addEventListener('click', getAiFeedback);
+
         document.getElementById('printAssignmentBtn')?.addEventListener('click', printAssignment);
         
         const importBtn = document.getElementById('importLocalBackupBtn');
