@@ -1,13 +1,14 @@
-// quiz.js - v7 (Unified JSON Structure for Questions)
+// quiz.js - v8 (Fixed SUB_STORAGE_PREFIX definition)
 (function() {
     'use strict';
 
     // --- CONSTANTS & STATE ---
     // Diese Präfixe bleiben gleich, da sie die Art der im localStorage gespeicherten Daten definieren.
     // 'textbox-quizdata_' speichert die Antworten des Benutzers für das Quiz.
-    // 'textbox-quizquestions_' speichert die Quizfragen selbst (für den Export/Backup).
+    // 'textbox-questions_' speichert die Quizfragen selbst (für den Export/Backup).
     const QUIZ_ANSWERS_PREFIX = 'textbox-quizdata_';
     const QUIZ_QUESTIONS_PREFIX = 'textbox-questions_'; // Angleichung an script.js, um Fragen gemeinsam zu speichern
+    const SUB_STORAGE_PREFIX = 'textbox-sub_'; // <-- DIESE DEFINITION WURDE HINZUGEFÜGT/KORRIGIERT
 
     // Holt assignmentId und subId aus der URL
     const params = new URLSearchParams(window.location.search);
