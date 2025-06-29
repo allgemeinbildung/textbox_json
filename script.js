@@ -284,28 +284,28 @@
 
     // Add this entire new function to script.js
 
+    // In script.js, replace the getAiFeedback function with this version
+
     async function getAiFeedback() {
         console.log("Requesting AI feedback for the current assignment...");
-
-        // This function gathers only the currently displayed assignment data.
-        // The 'true' prompts the user for their name/identifier.
         const currentData = await gatherCurrentAssignmentData(true);
 
         if (!currentData) {
             alert("Aktion abgebrochen. Es wurden keine Daten zum Senden gefunden.");
-            return; // Exit if no data or user cancelled prompt
+            return;
         }
 
-        // IMPORTANT: Use the URL from your NEWEST deployment
         const FEEDBACK_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3K_VyLt1Rhq52V3igYo9JDI3Kv7jwKxfJYzctpGzqSm_2Tqt3hitUic2m12no2a3ODg/exec';
-
         alert('Dein Auftrag wird zur Analyse an die KI gesendet. Dies kann einen Moment dauern. Das Feedback öffnet sich in einem neuen Fenster.');
 
         try {
             const feedbackResponse = await fetch(FEEDBACK_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'cors',
-                body: JSON.stringify(currentData) // Send the data for the current assignment
+                headers: { // <-- ADD THIS HEADERS OBJECT
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(currentData)
             });
 
             if (feedbackResponse.ok) {
@@ -319,7 +319,6 @@
                     alert("Bitte erlaube Pop-ups, um das Feedback-Fenster zu sehen.");
                 }
             } else {
-                // Provide more detailed error information
                 const errorText = await feedbackResponse.text();
                 console.error("Feedback fetch failed:", feedbackResponse.status, errorText);
                 throw new Error(`Der Server hat mit einem Fehler geantwortet: ${feedbackResponse.status}`);
