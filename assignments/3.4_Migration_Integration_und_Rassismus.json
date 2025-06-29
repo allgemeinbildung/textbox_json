@@ -1,0 +1,299 @@
+{
+  "assignmentId": "3.4 Migration, Integration und Rassismus",
+  "title": "Migration, Integration und Rassismus",
+  "subAssignments": {
+    "Migration und Wirtschaft": {
+      "questions": [
+        {
+          "question_text": "Diskutieren Sie die **ökonomischen Auswirkungen** von Migration auf das Aufnahmeland, sowohl positive als auch negative Aspekte.",
+          "solution": "Migration hat vielfältige ökonomische Auswirkungen auf das Aufnahmeland:\n\n**Positive Aspekte:**\n- **Arbeitskräftemangel:** Migranten können Lücken in der Arbeitskräfteversorgung füllen, insbesondere in Sektoren mit Mangel an einheimischen Arbeitskräften (z.B. Pflege, Bau, Saisonarbeit).\n- **Wirtschaftswachstum:** Durch zusätzliche Arbeitskräfte, Konsum und Unternehmensgründungen können Migranten zum Wirtschaftswachstum beitragen.\n- **Innovation und Vielfalt:** Migranten bringen oft neue Ideen, Fähigkeiten und Perspektiven mit, die Innovation und Produktivität fördern können.\n- **Demografie:** In alternden Gesellschaften kann Migration dazu beitragen, das Verhältnis von Erwerbstätigen zu Rentnern auszugleichen und die Sozialsysteme zu entlasten.\n- **Überweisungen:** Geldüberweisungen von Migranten in ihre Herkunftsländer können dort die Wirtschaft stärken, was wiederum Handelsbeziehungen fördern kann.\n\n**Negative Aspekte:**\n- **Lohndruck:** In einigen Sektoren kann ein erhöhtes Arbeitskräfteangebot zu Druck auf die Löhne für geringqualifizierte Arbeitskräfte führen.\n- **Infrastrukturkosten:** Die Aufnahme einer grösseren Bevölkerung kann Investitionen in Infrastruktur (Wohnraum, Schulen, Gesundheit) erfordern.\n- **Soziale Kosten:** Bei unzureichender Integration können soziale Spannungen und Kosten entstehen (z.B. für Arbeitslosigkeit, soziale Leistungen, Bildung bei Sprachbarrieren).\n- **Brain Drain in Herkunftsländern:** Qualifizierte Migration kann zu einem 'Brain Drain' in den Herkunftsländern führen, was deren Entwicklung behindert."
+        },
+        {
+          "question_text": "Erörtern Sie, wie die **Fachkräftelücke** in bestimmten Sektoren durch Zuwanderung beeinflusst werden kann.",
+          "solution": "Die Zuwanderung kann die Fachkräftelücke in bestimmten Sektoren massgeblich beeinflussen, indem sie gezielt fehlende Kompetenzen und Arbeitskräfte bereitstellt. Länder wie die Schweiz, Deutschland oder Kanada haben oft einen Bedarf an spezialisierten Fachkräften (z.B. in der IT, im Gesundheitswesen, im Ingenieurwesen oder in bestimmten Handwerksberufen), der durch die eigene Bevölkerung nicht vollständig gedeckt werden kann. Durch die gezielte Anwerbung von Fachkräften aus dem Ausland können diese Lücken geschlossen werden.\n\nDies führt zu:\n- **Erhöhte Produktivität:** Unternehmen können weiterhin innovativ sein und wachsen, da sie die benötigten Talente finden.\n- **Wettbewerbsfähigkeit:** Die Wirtschaft des Aufnahmelandes bleibt international wettbewerbsfähig, da sie auf einen breiteren Talentpool zugreifen kann.\n- **Entlastung von Systemen:** Zum Beispiel im Gesundheitswesen kann die Zuwanderung von Ärzten und Pflegepersonal eine Überlastung des Systems verhindern.\n\nAllerdings ist auch wichtig, dass die Integration dieser Fachkräfte gelingt, damit sie ihre Qualifikationen voll einsetzen können. Anerkennung ausländischer Abschlüsse und Sprachkurse spielen hier eine wichtige Rolle."
+        }
+      ]
+    }
+  },
+  "quizzes": {
+    "Grundlagen_Quiz": {
+      "title": "Grundlagen Quiz: Wirtschaftskreislauf",
+      "media": {
+        "type": "",
+        "url": "",
+        "source": ""
+      },
+      "customIntroText": "<p><strong>Der Wirtschaftskreislauf – Worum geht es?</strong></p>\n\n<p>In diesem Beitrag lernst du...</p>",
+      "questions": [
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Erinnern",
+          "question": "<p>Was sind die beiden zentralen Ströme im beschriebenen Wirtschaftskreislauf?</p>",
+          "options": [
+            {
+              "text": "Der Geldstrom und der Güterstrom.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Der <strong>Geldstrom</strong> und der <strong>Güterstrom</strong> sind die beiden Hauptströme, die im Wirtschaftskreislauf fliessen."
+            },
+            {
+              "text": "Der Produktionsstrom und der Konsumstrom, welche die Herstellung und den Verbrauch von Waren beschreiben.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Produktion und Konsum sind zwar Teil des Kreislaufs, die zentralen fliessenden Elemente werden aber als <strong>Geldstrom</strong> und <strong>Güterstrom</strong> bezeichnet."
+            },
+            {
+              "text": "Der Lohnstrom und der Preisstrom, die sich ausschliesslich auf die monetären Aspekte der Wirtschaft fokussieren.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Löhne sind nur ein Teil des <strong>Geldstroms</strong> und Preise das Ergebnis der Interaktion beider Ströme. Die übergeordneten Begriffe sind <strong>Geldstrom</strong> und <strong>Güterstrom</strong>."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Erinnern",
+          "question": "<p>In welche Richtung fliesst der Geldstrom, wenn Konsumenten für ihre Arbeit entlohnt werden?</p>",
+          "options": [
+            {
+              "text": "Vom Produzenten zum Konsumenten.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Produzenten zahlen Löhne für geleistete Arbeit, daher fliesst das Geld <strong>vom Produzenten zum Konsumenten</strong>."
+            },
+            {
+              "text": "Vom Konsumenten zum Produzenten, da dies den grundlegenden Kaufprozess von Gütern darstellt.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Wenn Konsumenten Güter kaufen, fliesst Geld zum Produzenten. Bei der Lohnzahlung ist die Richtung umgekehrt, nämlich <strong>vom Produzenten zum Konsumenten</strong>."
+            },
+            {
+              "text": "Der Geldstrom für Löhne fliesst ausserhalb des Kreislaufs direkt vom Staat an die Konsumenten und nicht von den Produzenten.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Im hier beschriebenen einfachen Kreislauf zahlen die <strong>Produzenten</strong> die Löhne direkt an die <strong>Konsumenten</strong> als Entgelt für deren Arbeitskraft."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Erinnern",
+          "question": "<p>Was ist laut Text ein Bestandteil des Güterstroms, der von den Konsumenten zu den Produzenten fliesst?</p>",
+          "options": [
+            {
+              "text": "Die Arbeitskraft.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Konsumenten bieten ihre <strong>Arbeitskraft</strong> an, die von den Produzenten zur Herstellung von Gütern und Dienstleistungen genutzt wird."
+            },
+            {
+              "text": "Die Löhne und Gehälter, welche die Produzenten an die Konsumenten für deren Tätigkeit zahlen müssen.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Löhne und Gehälter sind Geld und gehören daher zum Geldstrom, nicht zum Güterstrom. Der Güterstrom umfasst die <strong>Arbeitskraft</strong>."
+            },
+            {
+              "text": "Die fertigen Produkte und Waren, die von den Produzenten hergestellt und dann in Lagern aufbewahrt werden.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Fertige Produkte fliessen von den Produzenten zu den Konsumenten. Von den Konsumenten fliesst die <strong>Arbeitskraft</strong> zu den Produzenten."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Erinnern",
+          "question": "<p>Was passiert laut dem Text direkt mit den Preisen, wenn der Geldstrom zu gross wird?</p>",
+          "options": [
+            {
+              "text": "Die Preise steigen.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Wenn zu viel Geld auf eine gleichbleibende Gütermenge trifft, verlieren die Geldscheine an Wert und die <strong>Preise steigen</strong>."
+            },
+            {
+              "text": "Die Preise fallen stark, weil die Produzenten versuchen, mehr Güter durch besonders günstige Angebote zu verkaufen.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Das Gegenteil ist der Fall. Da mehr Geld verfügbar ist, um die Güter zu kaufen, können die Produzenten höhere Preise verlangen und die <strong>Preise steigen</strong>."
+            },
+            {
+              "text": "Die Preise bleiben völlig stabil, da sie in der Schweiz gesetzlich festgelegt sind und sich nicht durch den Geldstrom verändern können.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Preise sind in einer Marktwirtschaft flexibel und reagieren auf Angebot und Nachfrage. Ein überdimensionierter Geldstrom führt dazu, dass die <strong>Preise steigen</strong>."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Erinnern",
+          "question": "<p>Welchen Begriff verwendet der Text, um den Wertverlust des Geldes zu beschreiben?</p>",
+          "options": [
+            {
+              "text": "Kaufkraftverlust.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Der Text beschreibt den Wertverlust des Geldes, bei dem man für denselben Betrag weniger bekommt, als <strong>Kaufkraftverlust</strong>."
+            },
+            {
+              "text": "Güterstromverlust, ein Begriff, der den Mangel an verfügbaren Produkten und Dienstleistungen im Detail beschreibt.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Der Wertverlust des Geldes wird als <strong>Kaufkraftverlust</strong> bezeichnet. Ein Güterstromverlust wäre ein Mangel an Waren, nicht an Geldwert."
+            },
+            {
+              "text": "Monetäre Stabilisierung, was bedeutet, dass der Wert des Geldes durch zentrale Massnahmen der Regierung gesichert wird.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Monetäre Stabilisierung wäre das Gegenteil. Der beschriebene Wertverlust des Geldes heisst <strong>Kaufkraftverlust</strong>."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Verstehen",
+          "question": "<p>Was ist die Kernaussage, wenn der Geldstrom im Diagramm als überdimensioniert dargestellt wird?</p>",
+          "options": [
+            {
+              "text": "Es ist zu viel Geld im Verhältnis zu den verfügbaren Gütern im Umlauf.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Ein überdimensionierter Geldstrom bedeutet, dass die <strong>Geldmenge</strong> schneller wächst als die <strong>Gütermenge</strong>, was zu einem Ungleichgewicht führt."
+            },
+            {
+              "text": "Die Wirtschaft ist besonders stark, da sehr viel Geld vorhanden ist, was auf einen hohen Wohlstand für alle hindeutet und die Produktion anregt.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Zu viel Geld allein ist kein Zeichen von Stärke. Wenn die <strong>Gütermenge</strong> nicht mithält, führt dies zu Inflation und <strong>Kaufkraftverlust</strong>."
+            },
+            {
+              "text": "Die Produzenten stellen zu viele Güter her, sodass das Geld nicht ausreicht, um alles zu kaufen, was zu einem grossen Überangebot führt.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Ein überdimensionierter Geldstrom beschreibt das genaue Gegenteil: Zu viel <strong>Geld</strong> jagt zu wenige <strong>Güter</strong>."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Verstehen",
+          "question": "<p>Wie erklärt der Text den Zusammenhang zwischen dem Geldstrom und der Inflation?</p>",
+          "options": [
+            {
+              "text": "Inflation entsteht, wenn der Geldstrom wächst, ohne dass der Güterstrom im gleichen Masse zunimmt.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Dies ist die zentrale Erklärung: Das <strong>Ungleichgewicht</strong> zwischen einem wachsenden <strong>Geldstrom</strong> und einem stagnierenden <strong>Güterstrom</strong> führt zur Inflation."
+            },
+            {
+              "text": "Inflation wird dadurch verursacht, dass die Konsumenten zu wenig Geld zur Verfügung haben, um die produzierten Güter zu kaufen, was die Produzenten zu Preissenkungen zwingt.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Das beschriebene Szenario würde zu Deflation (fallenden Preisen) führen. Inflation entsteht, wenn der <strong>Geldstrom</strong> im Verhältnis zum <strong>Güterstrom</strong> zu gross ist."
+            },
+            {
+              "text": "Inflation ist ein Zeichen dafür, dass der Güterstrom viel grösser ist als der Geldstrom, was bedeutet, dass die Waren sehr selten und daher extrem teuer sind.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Wenn der Güterstrom grösser wäre als der Geldstrom, würden die Preise tendenziell fallen. Inflation wird durch einen zu grossen <strong>Geldstrom</strong> verursacht."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Verstehen",
+          "question": "<p>Was bedeutet die Aussage, dass Geld und Güter „im Gleichgewicht bleiben“ müssen?</p>",
+          "options": [
+            {
+              "text": "Die Menge des Geldes sollte dem Wert der verfügbaren Güter und Dienstleistungen entsprechen, um stabile Preise zu sichern.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Ein <strong>Gleichgewicht</strong> bedeutet, dass die <strong>Geldmenge</strong> und die <strong>Gütermenge</strong> in einem gesunden Verhältnis zueinander stehen, was die Kaufkraft stabil hält."
+            },
+            {
+              "text": "Es muss immer exakt die gleiche Anzahl an Geldscheinen wie an Produkten im Umlauf sein, unabhängig vom jeweiligen Wert dieser Produkte oder des Geldes.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Es geht nicht um die reine Anzahl, sondern um das <strong>Wertverhältnis</strong>. Der Gesamtwert des Geldes sollte dem Gesamtwert der Güter entsprechen, um ein <strong>Gleichgewicht</strong> zu schaffen."
+            },
+            {
+              "text": "Die Produzenten und Konsumenten müssen sich darauf einigen, die Preise für alle Güter einzufrieren, damit keinerlei Schwankungen mehr entstehen können.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Ein <strong>Gleichgewicht</strong> entsteht dynamisch durch das Zusammenspiel von Geld- und Güterstrom, nicht durch staatlich fixierte Preise. Es geht um ein stabiles <strong>Wertverhältnis</strong>."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Verstehen",
+          "question": "<p>Warum ist die zweiseitige Bewegung des Geldstroms (zu Produzenten und zu Konsumenten) entscheidend für das System?</p>",
+          "options": [
+            {
+              "text": "Weil dadurch ein geschlossener Kreislauf entsteht, in dem Einkommen ausgegeben und Ausgaben zu Einkommen werden.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Die <strong>zweiseitige Bewegung</strong> sorgt dafür, dass das System sich selbst am Laufen hält: Die Ausgaben der einen sind die <strong>Einnahmen</strong> der anderen und umgekehrt."
+            },
+            {
+              "text": "Weil der Staat so besser kontrollieren kann, wer wie viel Geld besitzt, indem er die beiden Ströme separat besteuert und reguliert.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Der Grund für die zweiseitige Bewegung ist die grundlegende <strong>Funktionsweise des Marktes</strong>, nicht die staatliche Kontrolle. Es schafft einen <strong>geschlossenen Kreislauf</strong>."
+            },
+            {
+              "text": "Weil nur so sichergestellt werden kann, dass die Produzenten mehr Geld einnehmen, als sie für Löhne ausgeben müssen, was ihren Gewinn maximiert.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Gewinnmaximierung ist ein Ziel von Unternehmen, aber nicht der Grund für die Existenz des zweiseitigen Stroms. Dieser ist die Basis für den gesamten <strong>Wirtschaftskreislauf</strong>."
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Verstehen",
+          "question": "<p>Welche logische Folge hätte es, wenn der Güterstrom plötzlich stark anwachsen würde, der Geldstrom aber gleich bliebe?</p>",
+          "options": [
+            {
+              "text": "Der Wert des Geldes würde steigen und die Preise für Güter würden tendenziell sinken.",
+              "is_correct": true,
+              "feedback": "✅ Richtig! Wenn mehr Güter auf die gleiche Menge Geld treffen, wird jedes einzelne Gut im Verhältnis billiger. Dies nennt man <strong>Deflation</strong> und die <strong>Kaufkraft</strong> des Geldes steigt."
+            },
+            {
+              "text": "Es würde sofort zu einer starken Inflation kommen, da die vielen neuen Güter die Nachfrage nach Geld extrem erhöhen und somit alles teurer wird.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Inflation ist das Gegenteil. Ein grösserer Güterstrom bei gleicher Geldmenge führt tendenziell zu <strong>sinkenden Preisen (Deflation)</strong>, da mehr Waren verfügbar sind."
+            },
+            {
+              "text": "Der Kreislauf würde vollständig zusammenbrechen, da die Konsumenten aufhören würden, ihre Arbeitskraft anzubieten, wenn es zu viele Güter im Umlauf gibt.",
+              "is_correct": false,
+              "feedback": "❌ Falsch. Ein Zusammenbruch ist nicht die direkte logische Folge. Die wahrscheinlichste Konsequenz wäre, dass der <strong>Wert des Geldes</strong> steigt und die <strong>Preise fallen</strong>."
+            }
+          ]
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Erinnern",
+          "question": "<p>Der Geldstrom fliesst ausschliesslich von den Konsumenten zu den Produzenten in Form von Zahlungen für Waren.</p>",
+          "correct_answer": false,
+          "feedback_correct": "Richtig. Der Geldstrom fliesst auch in die andere Richtung, nämlich von den Produzenten zu den Konsumenten in Form von Löhnen.",
+          "feedback_incorrect": "Falsch. Der Text beschreibt den Geldstrom als zweiseitig. Er fliesst auch von den Produzenten (für Löhne) zu den Konsumenten."
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Erinnern",
+          "question": "<p>Der Güterstrom umfasst Produkte, Dienstleistungen und die Arbeitskraft der Konsumenten.</p>",
+          "correct_answer": true,
+          "feedback_correct": "Richtig. Der Güterstrom beinhaltet nicht nur fertige Waren, sondern auch Dienstleistungen und die von Konsumenten angebotene Arbeitskraft.",
+          "feedback_incorrect": "Falsch. Genau diese drei Komponenten – Produkte, Dienstleistungen und Arbeitskraft – werden im Text als Teil des Güterstroms genannt."
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Erinnern",
+          "question": "<p>Inflation entsteht, wenn der Güterstrom grösser ist als der Geldstrom.</p>",
+          "correct_answer": false,
+          "feedback_correct": "Richtig. Inflation entsteht laut Text, wenn der Geldstrom grösser ist als der Güterstrom.",
+          "feedback_incorrect": "Falsch. Im Text wird erklärt, dass Inflation die Folge eines überdimensionierten Geldstroms im Vergleich zum Güterstrom ist."
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Verstehen",
+          "question": "<p>Ein stabiles Gleichgewicht zwischen Geld- und Güterstrom ist die Voraussetzung für eine stabile Kaufkraft.</p>",
+          "correct_answer": true,
+          "feedback_correct": "Richtig. Der Text schliesst damit, dass die Kaufkraft stabil bleibt, wenn beide Ströme im Gleichgewicht sind.",
+          "feedback_incorrect": "Falsch. Genau dieses Gleichgewicht wird im Text als entscheidend für eine stabile Kaufkraft und die Vermeidung von Inflation beschrieben."
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Verstehen",
+          "question": "<p>Wenn ein Unternehmen Löhne zahlt, ist dieser Vorgang ein Teil des Güterstroms.</p>",
+          "correct_answer": false,
+          "feedback_correct": "Richtig. Die Zahlung von Löhnen ist eine Geldbewegung und gehört somit zum Geldstrom, nicht zum Güterstrom.",
+          "feedback_incorrect": "Falsch. Löhne sind Geld und gehören daher zum Geldstrom. Die Arbeitskraft, die dafür geleistet wird, ist Teil des Güterstroms."
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Verstehen",
+          "question": "<p>Die Aussage „für denselben Betrag bekommt man weniger“ beschreibt die Konsequenz einer zunehmenden Inflation.</p>",
+          "correct_answer": true,
+          "feedback_correct": "Richtig. Dies ist die Definition von Kaufkraftverlust, welcher eine direkte Folge der Inflation ist.",
+          "feedback_incorrect": "Falsch. Dies ist die exakte Beschreibung des Kaufkraftverlusts, der durch Inflation entsteht. Der Wert des Geldes sinkt."
+        }
+      ]
+    }
+  }
+}

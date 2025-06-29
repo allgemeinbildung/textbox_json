@@ -3,22 +3,40 @@
   "title": "Versicherungswesen",
   "subAssignments": {
     "Das Solidaritätsprinzip erklären": {
-      "questions": {
-        "question1": "Was versteht man unter dem **Solidaritätsprinzip** im Versicherungswesen? Erklären Sie es mit **eigenen Worten** anhand des Schaubilds auf Seite 126.",
-        "question2": "Welche **Rolle** spielen die **Prämienzahlungen** aller Versicherten für das Funktionieren dieses Prinzips und was ist mit der **Gefahrengemeinschaft** gemeint?"
-      }
+      "questions": [
+        {
+          "question_text": "Was versteht man unter dem **Solidaritätsprinzip** im Versicherungswesen? Erklären Sie es mit **eigenen Worten** anhand des Schaubilds auf Seite 126.",
+          "solution": "Das Solidaritätsprinzip im Versicherungswesen besagt, dass viele Menschen kleine Beiträge (Prämien) in einen gemeinsamen Topf einzahlen, um die finanziellen Lasten zu tragen, die bei wenigen, unvorhersehbaren Schadensfällen entstehen. Die Gemeinschaft trägt also das Risiko gemeinsam, sodass niemand alleine von einem grossen Schaden überwältigt wird. Es ist ein gegenseitiges Helfen innerhalb einer Gefahrengemeinschaft. Im Schaubild auf Seite 126 ist dies typischerweise durch viele kleine Pfeile, die zu einem zentralen Kreis führen (Prämienzahlungen), und wenige, aber grosse Pfeile, die von diesem Kreis wegführen (Leistungen im Schadensfall), illustriert."
+        },
+        {
+          "question_text": "Welche **Rolle** spielen die **Prämienzahlungen** aller Versicherten für das Funktionieren dieses Prinzips und was ist mit der **Gefahrengemeinschaft** gemeint?",
+          "solution": "Die Prämienzahlungen aller Versicherten bilden die finanzielle Grundlage des Solidaritätsprinzips. Ohne diese Beiträge gäbe es keinen gemeinsamen Topf, aus dem Schäden beglichen werden könnten. Jeder Beitrag, egal wie klein, trägt dazu bei, dass die Gemeinschaft stark genug ist, um die finanziellen Folgen von Risiken für ihre Mitglieder abzufedern. Die Gefahrengemeinschaft bezeichnet dabei die Gruppe aller Versicherten, die demselben Risiko (z.B. Krankheit, Unfall, Brand) ausgesetzt sind und die durch ihre Beiträge gemeinsam das Risiko tragen. Sie sind eine Gemeinschaft, weil sie potenziell alle vom gleichen Risiko betroffen sein könnten und durch das Prinzip der Solidarität einander im Schadensfall finanziell unterstützen."
+        }
+      ]
     },
     "Versicherungsarten unterscheiden lernen": {
-      "questions": {
-        "question1": "Nennen und beschreiben Sie kurz die **drei Hauptarten von Versicherungen**, die auf Seite 127 vorgestellt werden. Geben Sie für jede Art **zwei konkrete Beispiele** aus der Tabelle an.",
-        "question2": "Erklären Sie den **Unterschied** zwischen einer **obligatorischen** und einer **freiwilligen Versicherung**. Nennen Sie je ein Beispiel für eine **obligatorische Personenversicherung** und eine **freiwillige Sachversicherung** aus der Tabelle."
-      }
+      "questions": [
+        {
+          "question_text": "Nennen und beschreiben Sie kurz die **drei Hauptarten von Versicherungen**, die auf Seite 127 vorgestellt werden. Geben Sie für jede Art **zwei konkrete Beispiele** aus der Tabelle an.",
+          "solution": "Die drei Hauptarten sind:\n1. **Personenversicherungen:** Diese decken Risiken ab, die die Person selbst betreffen, wie z.B. Krankheit, Alter oder Tod. Beispiele: Krankenversicherung, Lebensversicherung.\n2. **Sachversicherungen:** Sie schützen vor Schäden an materiellem Eigentum. Beispiele: Hausratversicherung, Gebäudeversicherung.\n3. **Vermögensversicherungen:** Diese decken finanzielle Schäden ab, die nicht direkt Personen- oder Sachschäden sind, z.B. durch Haftpflichtansprüche. Beispiele: Haftpflichtversicherung (Privathaftpflicht, Motorfahrzeughaftpflicht), Rechtsschutzversicherung."
+        },
+        {
+          "question_text": "Erklären Sie den **Unterschied** zwischen einer **obligatorischen** und einer **freiwilligen Versicherung**. Nennen Sie je ein Beispiel für eine **obligatorische Personenversicherung** und eine **freiwillige Sachversicherung** aus der Tabelle.",
+          "solution": "Eine **obligatorische Versicherung** ist gesetzlich vorgeschrieben und muss von jeder Person oder jedem Haushalt abgeschlossen werden, um bestimmte Risiken abzudecken (z.B. die obligatorische Krankenversicherung in der Schweiz). Eine **freiwillige Versicherung** hingegen ist nicht gesetzlich vorgeschrieben; Personen können selbst entscheiden, ob sie diese abschliessen möchten, um sich gegen zusätzliche Risiken abzusichern (z.B. eine Hausratversicherung oder eine private Unfallversicherung).\nBeispiel obligatorische Personenversicherung: Krankenversicherung (Grundversicherung).\nBeispiel freiwillige Sachversicherung: Hausratversicherung oder Kaskoversicherung für das Auto."
+        }
+      ]
     },
     "Persönliche Risiken und ihre Prävention analysieren": {
-      "questions": {
-        "question1": "Definieren Sie den Begriff **„persönliche Risiken“**. Nennen und erläutern Sie **drei unterschiedliche persönliche Risiken**, die im Text auf den Seiten 123-125 beschrieben werden, und geben Sie jeweils eine **wichtige Präventionsmassnahme** an.",
-        "question2": "Erklären Sie anhand eines Beispiels aus dem Text (S. 123-125), wie sich ein **persönliches Risiko** (z.B. Alkoholkonsum) nicht nur auf die **betroffene Person**, sondern auch auf die **Gesellschaft auswirken** kann."
-      }
+      "questions": [
+        {
+          "question_text": "Definieren Sie den Begriff **„persönliche Risiken“**. Nennen und erläutern Sie **drei unterschiedliche persönliche Risiken**, die im Text auf den Seiten 123-125 beschrieben werden, und geben Sie jeweils eine **wichtige Präventionsmassnahme** an.",
+          "solution": "Persönliche Risiken sind Gefahren, die das individuelle Wohlbefinden, die Gesundheit oder die finanzielle Stabilität einer Person direkt betreffen können. Im Text auf den Seiten 123-125 werden beispielsweise folgende Risiken genannt:\n1. **Krankheit:** Das Risiko, an einer Krankheit zu erkranken, die zu Arbeitsausfall und hohen Behandlungskosten führen kann. Präventionsmassnahme: Gesunde Lebensweise (ausgewogene Ernährung, regelmässige Bewegung).\n2. **Unfall:** Das Risiko, durch einen Unfall verletzt zu werden, was ebenfalls Arbeitsausfall und medizinische Kosten nach sich zieht. Präventionsmassnahme: Sicherheitsvorschriften beachten, Sport mit Schutzausrüstung.\n3. **Arbeitslosigkeit:** Das Risiko, den Arbeitsplatz zu verlieren und dadurch kein Einkommen mehr zu haben. Präventionsmassnahme: Fort- und Weiterbildung, Networking, Notgroschen bilden."
+        },
+        {
+          "question_text": "Erklären Sie anhand eines Beispiels aus dem Text (S. 123-125), wie sich ein **persönliches Risiko** (z.B. Alkoholkonsum) nicht nur auf die **betroffene Person**, sondern auch auf die **Gesellschaft auswirken** kann",
+          "solution": "Ein persönliches Risiko wie übermässiger Alkoholkonsum (S. 123-125) wirkt sich weit über die betroffene Person hinaus auf die Gesellschaft aus. Für die Person selbst kann dies zu gesundheitlichen Problemen (Lebererkrankungen, Abhängigkeit), finanziellen Schwierigkeiten (durch Therapien, Arbeitsplatzverlust) und sozialen Problemen (Familienstreitigkeiten, Isolation) führen. Für die Gesellschaft entstehen ebenfalls Kosten und Belastungen:\n- **Gesundheitssystem:** Hohe Behandlungskosten für alkoholbedingte Krankheiten belasten die Krankenkassen und damit alle Prämienzahler.\n- **Produktivität:** Arbeitsausfälle durch Alkoholkonsum oder dessen Folgen verringern die volkswirtschaftliche Produktivität.\n- **Sicherheit:** Alkohol kann zu erhöhter Kriminalität, Verkehrsunfällen oder Gewalt führen, was die öffentliche Sicherheit beeinträchtigt und Kosten für Polizei und Justiz verursacht.\n- **Soziales Netz:** Familienmitglieder und Freunde der betroffenen Person können psychisch und finanziell belastet werden, was das soziale Gefüge schwächt."
+        }
+      ]
     }
   },
   "quizzes": {

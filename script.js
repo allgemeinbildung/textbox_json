@@ -1,4 +1,4 @@
-// script.js - v21 (Assignment & Sub-assignment Questions from JSON)
+// script.js - v22 (Adapted for Questions with Solutions in Array)
 (function() {
     'use strict';
 
@@ -17,7 +17,7 @@
     let currentAssignmentData = {
         assignmentId: null,
         subId: null,
-        questions: {}, // Fragen für die aktuelle subId
+        questions: [], // Fragen für die aktuelle subId, jetzt als Array von Objekten
         assignmentTitle: null // Titel der gesamten Aufgabe (z.B. "Versicherungswesen")
     };
 
@@ -134,7 +134,11 @@
         // Verwende die globalen Daten der aktuell geladenen Aufgabe
         const assignmentId = currentAssignmentData.assignmentId;
         const subId = currentAssignmentData.subId;
-        const questions = currentAssignmentData.questions; // Die geladenen Fragen für diese subId
+        // Fragen sind jetzt ein Array von Objekten, extrahiere nur den Text für den Export
+        const questionsForExport = {};
+        currentAssignmentData.questions.forEach((q, index) => {
+            questionsForExport[`question${index + 1}`] = q.question_text;
+        });
 
         if (!assignmentId || !subId) {
             alert("Fehler: Aktuelle 'assignmentId' oder 'subId' nicht geladen. Aktion nicht möglich.");
@@ -168,8 +172,8 @@
             }
         }
         
-        // Fragen aus den geladenen Daten verwenden
-        payload[assignmentId][subId].questions = questions;
+        // Fragen für den Export verwenden
+        payload[assignmentId][subId].questions = questionsForExport;
         
         // Anhänge für die aktuelle subId abrufen
         const attachments = await new Promise(resolve => getAttachments(assignmentId, subId, resolve));
@@ -235,6 +239,9 @@
                 const [, assignmentId, subId] = questionMatch;
                 if (!allDataPayload[assignmentId]) allDataPayload[assignmentId] = {};
                 if (!allDataPayload[assignmentId][subId]) allDataPayload[assignmentId][subId] = {};
+                // Hier wird JSON.parse() verwendet, um das Fragenobjekt aus dem localStorage zu holen.
+                // Es wird angenommen, dass dies bereits das { "question1": "text", ... } Format ist,
+                // das von `loadAssignmentAndQuestions` in localStorage gespeichert wurde.
                 try {
                     allDataPayload[assignmentId][subId].questions = JSON.parse(localStorage.getItem(key));
                 } catch (e) { console.error(`Error parsing questions for key ${key}`, e); }
@@ -329,7 +336,8 @@
         const subData = assignmentData[subId];
         if (subData) {
             const answerContent = subData.answer;
-            const questions = subData.questions;
+            const questions = subData.questions; // Dies ist jetzt das { "question1": "text", ... } Objekt
+
             let questionsHtml = '';
             if (questions && Object.keys(questions).length > 0) {
                 const sortedKeys = Object.keys(questions).sort((a, b) => (parseInt(a.replace('question', ''), 10) - parseInt(b.replace('question', ''), 10)));
@@ -414,6 +422,8 @@
                     for (const subId in dataStore[assignmentId]) {
                         const subData = dataStore[assignmentId][subId];
                         if (subData.answer) localStorage.setItem(`${STORAGE_PREFIX}${assignmentId}_${SUB_STORAGE_PREFIX}${subId}`, subData.answer);
+                        // Beim Wiederherstellen, wenn Fragen als Objekt im Backup sind (was der Fall sein wird),
+                        // speichern wir sie auch als Objekt in localStorage.
                         if (subData.questions && Object.keys(subData.questions).length > 0) localStorage.setItem(`${QUESTIONS_PREFIX}${assignmentId}_${SUB_STORAGE_PREFIX}${subId}`, JSON.stringify(subData.questions));
                         if (subData.attachments) {
                             for (const att of subData.attachments) {
@@ -498,7 +508,7 @@
     async function loadAssignmentAndQuestions() {
         const params = getQueryParams();
         const assignmentIdFromUrl = params.get('assignmentId');
-        const subIdFromUrl = params.get('subId'); // Geändert von 'subIds' zu 'subId'
+        const subIdFromUrl = params.get('subId');
 
         if (!assignmentIdFromUrl || !subIdFromUrl) {
             document.getElementById('subIdInfo').innerHTML = "<h4>Fehler: 'assignmentId' und 'subId' Parameter in der URL sind erforderlich (z.B. ?assignmentId=4.1 Versicherungswesen allgemein&subId=Das Solidaritätsprinzip erklären).</h4>";
@@ -517,40 +527,43 @@
             const data = await response.json();
 
             if (!data.assignmentId || !data.subAssignments || !data.subAssignments[subIdFromUrl]) {
-                throw new Error("Die JSON-Datei hat nicht das erwartete Format oder die angegebene 'subId' existiert nicht.");
+                throw new Error("Die JSON-Datei hat nicht das erwartete Format oder die angegebene 'subId' existiert nicht im 'subAssignments'-Abschnitt.");
             }
 
             const specificSubAssignment = data.subAssignments[subIdFromUrl];
-            if (!specificSubAssignment.questions) {
-                throw new Error("Die angegebene 'subId' enthält keine Fragen.");
+            if (!specificSubAssignment.questions || !Array.isArray(specificSubAssignment.questions)) {
+                throw new Error("Die angegebene 'subId' enthält keine gültigen Fragen als Array.");
             }
 
             // Speichere die geladenen Daten global
             currentAssignmentData = {
                 assignmentId: data.assignmentId,
-                subId: subIdFromUrl, // Verwende die subId aus der URL
-                questions: specificSubAssignment.questions, // Fragen für die spezifische subId
-                assignmentTitle: data.title || data.assignmentId // Titel der gesamten Aufgabe
+                subId: subIdFromUrl,
+                questions: specificSubAssignment.questions, // Fragen sind jetzt ein Array von Objekten
+                assignmentTitle: data.title || data.assignmentId
             };
 
-            // Speichere die Fragen in localStorage unter dem Standardpräfix
-            localStorage.setItem(`${QUESTIONS_PREFIX}${currentAssignmentData.assignmentId}_${SUB_STORAGE_PREFIX}${currentAssignmentData.subId}`, JSON.stringify(currentAssignmentData.questions));
+            // Fragen für localStorage im alten Schlüssel-Wert-Format vorbereiten,
+            // da verifier.html dies erwartet und Lösungen nicht dort gespeichert werden sollen.
+            const questionsForLocalStorage = {};
+            currentAssignmentData.questions.forEach((q, index) => {
+                questionsForLocalStorage[`question${index + 1}`] = q.question_text;
+            });
+            localStorage.setItem(`${QUESTIONS_PREFIX}${currentAssignmentData.assignmentId}_${SUB_STORAGE_PREFIX}${currentAssignmentData.subId}`, JSON.stringify(questionsForLocalStorage));
 
             const subIdInfoElement = document.getElementById('subIdInfo');
-            // Zeige den Titel der Hauptaufgabe und die subId an
             let infoHtml = `<h4>${currentAssignmentData.assignmentTitle || currentAssignmentData.assignmentId} - ${currentAssignmentData.subId}</h4>`;
             
-            const sortedQuestionKeys = Object.keys(currentAssignmentData.questions).sort((a, b) => (parseInt(a.replace('question', ''), 10) - parseInt(b.replace('question', ''), 10)));
-
-            if (sortedQuestionKeys.length > 0) {
+            if (currentAssignmentData.questions.length > 0) {
                 infoHtml += '<div class="questions-container"><ol>';
-                sortedQuestionKeys.forEach(key => { infoHtml += `<li>${parseMarkdown(currentAssignmentData.questions[key])}</li>`; });
+                // Iteriere über das Array der Fragen und zeige nur den question_text an
+                currentAssignmentData.questions.forEach(q => { infoHtml += `<li>${parseMarkdown(q.question_text)}</li>`; });
                 infoHtml += '</ol></div>';
             }
             subIdInfoElement.innerHTML = infoHtml;
 
-            loadContent(); // Lade bestehende Antworten für diese Aufgabe/Unteraufgabe
-            loadAndDisplayAttachments(); // Lade bestehende Anhänge für diese Aufgabe/Unteraufgabe
+            loadContent();
+            loadAndDisplayAttachments();
 
         } catch (error) {
             console.error('Fehler beim Laden oder Verarbeiten der Fragen:', error);
