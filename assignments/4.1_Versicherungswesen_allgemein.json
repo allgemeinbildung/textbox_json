@@ -1,0 +1,24 @@
+{
+  "assignmentId": "4.1 Versicherungswesen allgemein",
+  "title": "Versicherungswesen",
+  "subAssignments": {
+    "Das Solidaritätsprinzip erklären": {
+      "questions": {
+        "question1": "Was versteht man unter dem **Solidaritätsprinzip** im Versicherungswesen? Erklären Sie es mit **eigenen Worten** anhand des Schaubilds auf Seite 126.",
+        "question2": "Welche **Rolle** spielen die **Prämienzahlungen** aller Versicherten für das Funktionieren dieses Prinzips und was ist mit der **Gefahrengemeinschaft** gemeint?"
+      }
+    },
+    "Versicherungsarten unterscheiden lernen": {
+      "questions": {
+        "question1": "Nennen und beschreiben Sie kurz die **drei Hauptarten von Versicherungen**, die auf Seite 127 vorgestellt werden. Geben Sie für jede Art **zwei konkrete Beispiele** aus der Tabelle an.",
+        "question2": "Erklären Sie den **Unterschied** zwischen einer **obligatorischen** und einer **freiwilligen Versicherung**. Nennen Sie je ein Beispiel für eine **obligatorische Personenversicherung** und eine **freiwillige Sachversicherung** aus der Tabelle."
+      }
+    },
+    "Persönliche Risiken und ihre Prävention analysieren": {
+      "questions": {
+        "question1": "Definieren Sie den Begriff **„persönliche Risiken“**. Nennen und erläutern Sie **drei unterschiedliche persönliche Risiken**, die im Text auf den Seiten 123-125 beschrieben werden, und geben Sie jeweils eine **wichtige Präventionsmassnahme** an.",
+        "question2": "Erklären Sie anhand eines Beispiels aus dem Text (S. 123-125), wie sich ein **persönliches Risiko** (z.B. Alkoholkonsum) nicht nur auf die **betroffene Person**, sondern auch auf die **Gesellschaft auswirken** kann."
+      }
+    }
+  }
+}
