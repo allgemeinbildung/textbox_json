@@ -295,7 +295,7 @@
             return;
         }
 
-        const FEEDBACK_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3K_VyLt1Rhq52V3igYo9JDI3Kv7jwKxfJYzctpGzqSm_2Tqt3hitUic2m12no2a3ODg/exec';
+        const FEEDBACK_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyfWI81xlzPWOiPZpdjWZQu013dXc8ARWUQR2iYiLrnhQjS7odnCwP_LwmsItvZX103Bg/exec';
         alert('Dein Auftrag wird zur Analyse an die KI gesendet. Dies kann einen Moment dauern. Das Feedback öffnet sich in einem neuen Fenster.');
 
         try {
