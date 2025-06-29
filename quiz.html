@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Interaktives Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Styles */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f8f9fa; color: #343a40; }
+        #quiz-container { background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); position: relative; overflow: hidden; }
+        
+        /* Header */
+        #quiz-header { padding: 25px; border-bottom: 1px solid #dee2e6; }
+        #quiz-header h2 { margin: 0 0 5px 0; color: #003f5c; }
+        #quiz-header h4 { margin: 0; color: #6c757d; font-weight: normal; }
+        #intro-text { padding: 25px; font-size: 1.1em; line-height: 1.6; border-bottom: 1px solid #e9ecef;}
+
+        /* Main Quiz Area */
+        #quiz-main { padding: 25px; }
+        #question-area { min-height: 220px; }
+        .question-item { border: 1px solid #e9ecef; border-radius: 8px; background: #fff; }
+        .question-item .question-text { padding: 15px; font-size: 1.1em; font-weight: bold; background-color: #f8f9fa; border-bottom: 1px solid #e9ecef; }
+        .question-item .question-text p { margin: 0; }
+        
+        /* Options & Feedback */
+        .options-container { padding: 15px; }
+        .options-container label { display: block; background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px; padding: 12px; margin-bottom: 10px; cursor: pointer; transition: background-color 0.2s, border-color 0.2s; }
+        .options-container label:hover { background-color: #e9ecef; }
+        .options-container input[type="radio"] { margin-right: 12px; accent-color: #003f5c; }
+        .options-container input[type="radio"]:disabled + span { color: #6c757d; }
+        .options-container label.selected { border-color: #003f5c; background-color: #eef3f6; }
+
+        #feedback-area { min-height: 60px; margin-top: 15px; }
+        .feedback-container { padding: 12px; border-radius: 5px; }
+        .feedback-correct { background-color: #d4edda; border-left: 5px solid #28a745; color: #155724; }
+        .feedback-incorrect { background-color: #f8d7da; border-left: 5px solid #dc3545; color: #721c24; }
+
+        /* Navigation */
+        #quiz-navigation { padding: 20px 25px 25px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e9ecef; }
+        #nav-right-group { display: flex; align-items: center; gap: 15px; }
+        #progress-indicator { color: #6c757d; font-weight: bold; }
+        #next-btn { background-color: #003f5c; color: white; padding: 10px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; }
+        #next-btn:disabled { background-color: #aeb9c1; cursor: not-allowed; }
+
+        /* Results Screen */
+        #results-screen { display: none; padding: 40px 25px; text-align: center; }
+        #results-screen h3 { font-size: 1.8em; color: #003f5c; }
+        #results-screen p { font-size: 1.2em; margin-bottom: 25px; }
+        
+        /* Shared Button Styles */
+        .start-new-btn {
+            background-color: #dc3545; /* Red for destructive action */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+        .start-new-btn:hover { background-color: #c82333; }
+
+
+        /* Save Indicator */
+        #saveIndicator { position: fixed; bottom: 20px; right: 20px; background-color: #28a745; color: white; padding: 10px 20px; border-radius: 50px; opacity: 0; transition: opacity 0.5s; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <div id="quiz-container">
+        <header id="quiz-header">
+            <h2 id="assignment-title">Lade Quiz...</h2>
+            <h4 id="sub-id-title"></h4>
+        </header>
+        <div id="intro-text" style="display: none;"></div>
+
+        <main id="quiz-main" style="display: none;">
+            <div id="question-area">
+                </div>
+            <div id="feedback-area">
+                </div>
+        </main>
+        
+        <div id="quiz-navigation" style="display: none;">
+            <button id="start-new-btn-nav" class="start-new-btn">Neu beginnen</button>
+            <div id="nav-right-group">
+                <span id="progress-indicator"></span>
+                <button id="next-btn" disabled>Weiter</button>
+            </div>
+        </div>
+
+        <div id="results-screen">
+            <h3>Quiz abgeschlossen!</h3>
+            <p id="results-summary"></p>
+            <button id="start-new-btn-results" class="start-new-btn">Neu beginnen</button>
+        </div>
+    </div>
+
+    <div id="saveIndicator">Gespeichert!</div>
+    <script src="quiz.js"></script>
+
+</body>
+</html>

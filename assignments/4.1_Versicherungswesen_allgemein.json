@@ -20,5 +20,43 @@
         "question2": "Erklären Sie anhand eines Beispiels aus dem Text (S. 123-125), wie sich ein **persönliches Risiko** (z.B. Alkoholkonsum) nicht nur auf die **betroffene Person**, sondern auch auf die **Gesellschaft auswirken** kann."
       }
     }
+  },
+  "quizzes": {
+    "Grundlagen der Versicherungen": {
+      "title": "Quiz: Grundlagen der Versicherungen",
+      "customIntroText": "Testen Sie Ihr Wissen über die Grundlagen des Versicherungswesens.",
+      "questions": [
+        {
+          "type": "MultipleChoice",
+          "bloom_level": "Erinnern",
+          "question": "Was ist der Hauptzweck einer Versicherung?",
+          "options": [
+            {
+              "text": "Gewinnmaximierung für das Versicherungsunternehmen.",
+              "is_correct": false,
+              "feedback": "Falsch. Der Hauptzweck einer Versicherung ist der Schutz vor finanziellen Risiken."
+            },
+            {
+              "text": "Schutz vor finanziellen Risiken durch das Teilen von Lasten in einer Gemeinschaft.",
+              "is_correct": true,
+              "feedback": "Richtig! Dies ist die Kernfunktion der Versicherung."
+            },
+            {
+              "text": "Bereitstellung von Finanzierungsoptionen für grosse Investitionen.",
+              "is_correct": false,
+              "feedback": "Falsch. Das ist eher eine Funktion von Banken, nicht primär von Versicherungen."
+            }
+          ]
+        },
+        {
+          "type": "TrueFalse",
+          "bloom_level": "Verstehen",
+          "question": "Das Solidaritätsprinzip bedeutet, dass jeder Versicherte nur für die eigenen entstandenen Schäden aufkommt.",
+          "correct_answer": false,
+          "feedback_correct": "Richtig. Das Solidaritätsprinzip bedeutet, dass viele einzahlen, um die Schäden der wenigen Betroffenen zu decken.",
+          "feedback_incorrect": "Falsch. Das ist die Definition des Gegenteils. Das Solidaritätsprinzip basiert auf der Gemeinschaft."
+        }
+      ]
+    }
   }
 }
